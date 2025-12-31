@@ -569,6 +569,14 @@ input, textarea {
     color: var(--color-text-tertiary);
 }
 
+.hero__profile-img {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
 @keyframes blob-animation {
     0%, 100% {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -667,6 +675,11 @@ input, textarea {
         width: 250px;
         height: 250px;
     }
+
+    .hero__profile-img {
+        width: 250px;
+        height: 250px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -680,6 +693,11 @@ input, textarea {
     }
 
     .hero__profile-placeholder {
+        width: 190px;
+        height: 190px;
+    }
+
+    .hero__profile-img {
         width: 190px;
         height: 190px;
     }
@@ -722,6 +740,14 @@ input, textarea {
     justify-content: center;
     align-items: center;
     color: var(--color-text-tertiary);
+}
+
+.about__profile-img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    object-position: center;
 }
 
 .about__cards {
