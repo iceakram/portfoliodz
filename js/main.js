@@ -51,7 +51,7 @@ navLinks.forEach(link => {
 
 // Close menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+    if (navMenu && navToggle && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
         navMenu.classList.remove('show-menu');
         document.body.style.overflow = '';
     }
@@ -180,21 +180,7 @@ projectFilters.forEach(filter => {
     });
 });
 
-// Add fadeIn animation keyframes
-const styleSheet = document.createElement('style');
-styleSheet.textContent = `
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-document.head.appendChild(styleSheet);
+// Note: fadeIn animation is defined in styles.css
 
 /* ============================================
    CONTACT FORM HANDLING
@@ -229,9 +215,10 @@ if (contactForm) {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
             
-            showFormMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+            showFormMessage("Message sent successfully! I'll get back to you soon.", 'success');
             contactForm.reset();
-        } catch {
+        } catch (error) {
+            console.error('Form submission error:', error);
             showFormMessage('Something went wrong. Please try again later.', 'error');
         } finally {
             submitBtn.disabled = false;
